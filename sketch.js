@@ -15,7 +15,17 @@ function  preload() {
   
 }
 function setup() {
-createCanvas(windowWidth,windowHeight)
+  var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  if(isMobile){
+    canW=displayWidth
+    canH=displayHeight
+    createCanvas(displayWidth+80,displayHeight);
+  }
+  else{
+    canW=windowWidth
+    canH=windowHeight
+    createCanvas(windowWidth,windowHeight);
+  }
 road=createSprite(width/2,200)
 road.addImage(roadImage)
 road.velocityY=(16+ 6*score/50)
